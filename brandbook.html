@@ -1,0 +1,178 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Брендбук KEO GROUP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#ef7320;--orange2:#d8620f;--ink:#2b2a2e;--ink0:#1d1c20;--ink2:#6d758d;--ink3:#9aa0b4;--line:#e8eaf2;--bg:#f6f7f9}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-snap-type:y proximity;scroll-behavior:smooth}
+body{font-family:"Montserrat",sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.5;text-rendering:optimizeLegibility}
+h1,h2,h3,h4{line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
+p,li{text-wrap:pretty}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+.slide{min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;position:relative;padding:60px clamp(28px,6vw,90px)}
+.in{width:100%;max-width:1160px;margin:0 auto}
+.snum{position:absolute;left:clamp(28px,6vw,90px);right:clamp(28px,6vw,90px);bottom:34px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.04em;color:var(--ink3);font-weight:600}
+.shead{max-width:820px;margin-bottom:40px}
+.shead h2{font-size:clamp(30px,5vw,52px);font-weight:800;margin:12px 0 16px}
+.shead .lede{font-size:18px;color:var(--ink2)}
+.dark{background:var(--ink0);color:#fff}
+.dark .snum{color:rgba(255,255,255,.45)}
+.dark .shead h2{color:#fff}.dark .shead .lede{color:rgba(255,255,255,.74)}
+/* COVER */
+.cover{align-items:center;text-align:center;background:radial-gradient(120% 90% at 50% 30%,#26242a,#161417)}
+.cover .logo{width:min(520px,80vw);border-radius:24px;box-shadow:0 34px 80px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.08)}
+.cover .cap{margin-top:18px;font-size:13px;font-weight:800;letter-spacing:.34em;text-transform:uppercase;color:var(--orange)}
+.cover .cap2{margin-top:10px;font-size:15px;color:rgba(255,255,255,.6);letter-spacing:.04em}
+/* cards */
+.cards{display:grid;gap:18px}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}
+.vc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 12px 30px rgba(40,38,44,.05)}
+.vc .i{width:48px;height:48px;border-radius:13px;background:#fdeede;color:var(--orange2);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.vc .i svg{width:24px;height:24px}
+.vc h3{font-size:16.5px;margin-bottom:7px}.vc p{font-size:13.5px;color:var(--ink2)}
+/* logo slide */
+.logorow{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center}
+.logobox{background:var(--bg);border:1px solid var(--line);border-radius:22px;padding:30px;text-align:center}
+.logobox img{width:100%;max-width:440px;border-radius:14px}
+.lpoints li{list-style:none;padding:14px 0;border-top:1px solid var(--line);font-size:15px;color:var(--ink2);display:flex;gap:12px}
+.lpoints li:first-child{border-top:0}.lpoints b{color:var(--ink)}
+.lpoints .d{flex:0 0 auto;color:var(--orange);font-weight:800}
+/* palette */
+.palette{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.sw{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+.sw .chip{height:110px}.sw .m{padding:14px 16px}
+.sw .m b{display:block;font-size:14.5px}.sw .m .hex{font-size:12.5px;color:var(--ink2);font-weight:700;letter-spacing:.03em;margin-top:3px}
+.sw .m .u{font-size:11.5px;color:var(--ink3);margin-top:6px}
+/* type */
+.typewrap{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+.bigA{font-size:clamp(90px,17vw,190px);font-weight:800;line-height:.9;color:var(--ink)}
+.bigA span{color:var(--orange)}
+.glyphs{font-size:23px;font-weight:600;letter-spacing:.06em;color:var(--ink);line-height:1.7;word-spacing:2px}
+.weights div{padding:12px 0;border-top:1px solid var(--line)}
+.weights .lbl{font-size:12px;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.w8{font-weight:800;font-size:24px}.w6{font-weight:600;font-size:22px}.w4{font-weight:400;font-size:20px;color:var(--ink2)}
+/* application */
+.appgrid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+.appgrid>*,.appfull>*,.cards>*,.palette>*,.typewrap>*{min-width:0}
+.card-vis{background:linear-gradient(135deg,#2b2a2e,#1d1c20);border-radius:18px;aspect-ratio:1.7/1;padding:26px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;box-shadow:0 18px 40px rgba(40,38,44,.18)}
+.card-vis .wm{font-family:"Archivo Black";font-size:26px}.card-vis .wm b{color:var(--orange);font-weight:400}
+.card-vis small{font-size:9px;letter-spacing:.2em;color:rgba(255,255,255,.6);text-transform:uppercase}
+.card-vis .ct{font-size:12.5px;color:rgba(255,255,255,.85);line-height:1.7}
+.letter{background:#fff;border:1px solid var(--line);border-radius:18px;aspect-ratio:1.7/1;padding:24px;box-shadow:0 14px 32px rgba(40,38,44,.07)}
+.letter .wm{font-family:"Archivo Black";font-size:20px;color:var(--ink)}.letter .wm b{color:var(--orange);font-weight:400}
+.letter .ln{height:6px;background:var(--line);border-radius:3px;margin-top:10px}.letter .ln.s{width:60%}
+.letter .ln.o{background:var(--orange);width:34px;height:6px;margin-top:16px}
+.appfull{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sign{background:var(--ink0);border-radius:16px;height:130px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:"Archivo Black";font-size:24px}
+.sign b{color:var(--orange);font-weight:400}
+.polo{background:#2b2a2e;border-radius:16px;height:130px;display:flex;align-items:center;justify-content:center}
+.polo .wm{color:#fff;font-family:"Archivo Black";font-size:18px}.polo .wm b{color:var(--orange);font-weight:400}
+.usb{background:var(--bg);border:1px solid var(--line);border-radius:16px;height:130px;display:flex;align-items:center;justify-content:center;font-family:"Archivo Black";font-size:18px;color:var(--ink)}
+.usb b{color:var(--orange);font-weight:400}
+/* contacts */
+.contacts{display:flex;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:26px}
+.contacts a,.contacts span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:13px 21px;color:#fff;text-decoration:none;font-weight:600;font-size:14.5px}
+@media(max-width:880px){
+ .c3,.c4,.palette,.typewrap,.logorow,.appgrid{grid-template-columns:1fr}
+ .appfull{grid-template-columns:1fr}
+ .slide{min-height:auto;padding:48px 22px}
+}
+@media print{@page{size:A4 landscape;margin:0}html{scroll-snap-type:none}body{-webkit-print-color-adjust:exact;print-color-adjust:exact}.slide{min-height:auto;height:210mm;page-break-after:always}}
+
+.wordmark{font-family:"Archivo Black",sans-serif;letter-spacing:-.02em;line-height:1;color:#fff;white-space:nowrap}
+.wordmark b{color:var(--orange);font-weight:400}
+.wm-tag{font-family:"Montserrat",sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.24em}
+.cover-wm{font-size:clamp(46px,9vw,104px)}
+.cover .wm-tag{margin-top:16px;font-size:13px}
+.logobox-wm{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;min-height:250px}
+.logobox-wm .wordmark{font-size:clamp(40px,7vw,66px)}
+.logobox-wm .wm-tag{font-size:12px}
+</style></head><body>
+
+<section class="slide cover">
+ <div class="wordmark cover-wm">KEO <b>GROUP</b></div><div class="wm-tag" style="color:rgba(255,255,255,.5)">Недвижимость под ключ</div>
+ <div class="cap">Брендбук · Brand Guidelines</div>
+ <div class="cap2">Фирменный стиль строительной и девелоперской компании, Москва</div>
+ <div class="snum"><span>KEO GROUP · Брендбук</span><span>01 / 8</span></div>
+</section>
+
+<section class="slide" style="background:var(--bg)"><div class="in">
+ <div class="shead"><div class="eyebrow">О компании</div><h2>Единое окно по недвижимости в Москве</h2>
+  <p class="lede">KEO GROUP ведёт коммерческую недвижимость и девелоперские проекты под ключ: проектирование, легализация, регистрация, суды и управление. Инженеры, кадастровые специалисты и юристы в одной команде.</p></div>
+ <div class="cards c3">
+  <div class="vc"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></div><h3>Единое окно</h3><p>Один договор и один ответственный за весь объект, от идеи до результата.</p></div>
+  <div class="vc"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></div><h3>Полный цикл</h3><p>От участка и проекта до записи в ЕГРН и разрешения на строительство.</p></div>
+  <div class="vc"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Сложные случаи</h3><p>Приостановки, самострой, КРТ, суды, там, где другие разводят руками.</p></div>
+ </div>
+ <div class="snum"><span>KEO GROUP · Брендбук</span><span>02 / 8</span></div>
+</div></section>
+
+<section class="slide" style="background:#fff"><div class="in">
+ <div class="shead"><div class="eyebrow">Логотип</div><h2>Знак и его построение</h2></div>
+ <div class="logorow">
+  <div class="logobox logobox-wm"><div class="wordmark" style="color:var(--ink)">KEO <b>GROUP</b></div><div class="wm-tag" style="color:var(--ink3)">Недвижимость под ключ</div></div>
+  <ul class="lpoints">
+   <li><span class="d">01</span><span><b>Начертание.</b> Жирный геометрический гротеск Archivo Black, уверенный и устойчивый, как сама стройка.</span></li>
+   <li><span class="d">02</span><span><b>Цвет.</b> KEO графит, GROUP оранжевый. Акцент на втором слове, фирменный оранж работает точечно.</span></li>
+   <li><span class="d">03</span><span><b>Подпись.</b> Под знаком тег НЕДВИЖИМОСТЬ ПОД КЛЮЧ капителью, разреженно.</span></li>
+   <li><span class="d">04</span><span><b>Охранное поле.</b> Вокруг логотипа держим свободное место не меньше высоты буквы O.</span></li>
+  </ul>
+ </div>
+ <div class="snum"><span>KEO GROUP · Брендбук</span><span>03 / 8</span></div>
+</div></section>
+
+<section class="slide" style="background:var(--bg)"><div class="in">
+ <div class="shead"><div class="eyebrow">Палитра</div><h2>Фирменные цвета</h2>
+  <p class="lede">Светлый премиум: графит и оранж на белом, серые для текста. Оранж главный акцент, не заливаем им крупные поверхности.</p></div>
+ <div class="palette"><div class="sw"><div class="chip" style="background:#2b2a2e"></div><div class="m"><b>Графит</b><div class="hex">#2B2A2E</div><div class="u">Основной тёмный, текст и фигуры</div></div></div><div class="sw"><div class="chip" style="background:#1d1c20"></div><div class="m"><b>Графит глубокий</b><div class="hex">#1D1C20</div><div class="u">Тёмные фоны и обложки</div></div></div><div class="sw"><div class="chip" style="background:#ef7320"></div><div class="m"><b>Оранж</b><div class="hex">#EF7320</div><div class="u">Фирменный акцент, главный цвет</div></div></div><div class="sw"><div class="chip" style="background:#d8620f"></div><div class="m"><b>Оранж тёмный</b><div class="hex">#D8620F</div><div class="u">Нажатия, тени акцента</div></div></div><div class="sw"><div class="chip" style="background:#6d758d"></div><div class="m"><b>Серый текст</b><div class="hex">#6D758D</div><div class="u">Основной текст на светлом</div></div></div><div class="sw"><div class="chip" style="background:#9aa0b4"></div><div class="m"><b>Серый светлый</b><div class="hex">#9AA0B4</div><div class="u">Подписи, второстепенное</div></div></div><div class="sw"><div class="chip" style="background:#e8eaf2"></div><div class="m"><b>Линии</b><div class="hex">#E8EAF2</div><div class="u">Разделители и рамки</div></div></div><div class="sw"><div class="chip" style="background:#f6f7f9"></div><div class="m"><b>Фон</b><div class="hex">#F6F7F9</div><div class="u">Светлый фон слайдов</div></div></div></div>
+ <div class="snum"><span>KEO GROUP · Брендбук</span><span>04 / 8</span></div>
+</div></section>
+
+<section class="slide" style="background:#fff"><div class="in">
+ <div class="shead"><div class="eyebrow">Типографика</div><h2>Montserrat, один шрифт на всё</h2></div>
+ <div class="typewrap">
+  <div>
+   <div class="bigA">Aa<span>Bb</span></div>
+   <div class="glyphs">АБВГДЕЖЗИКЛМНОПР<br>СТУФХЦЧШЩЭЮЯ<br>ABCDEFGHIJKLMN<br>OPQRSTUVWXYZ<br>0 1 2 3 4 5 6 7 8 9</div>
+  </div>
+  <div class="weights">
+   <div><div class="lbl">Заголовки · Bold 800</div><div class="w8">Недвижимость под ключ</div></div>
+   <div><div class="lbl">Подзаголовки · SemiBold 600</div><div class="w6">Единое окно технического заказчика</div></div>
+   <div><div class="lbl">Текст · Regular 400</div><div class="w4">Спокойный читаемый текст для абзацев и описаний услуг, ровный ритм и воздух.</div></div>
+  </div>
+ </div>
+ <div class="snum"><span>KEO GROUP · Брендбук</span><span>05 / 8</span></div>
+</div></section>
+
+<section class="slide" style="background:var(--bg)"><div class="in">
+ <div class="shead"><div class="eyebrow">Направления</div><h2>Что мы делаем</h2></div>
+ <div class="cards c4"><div class="vc"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21h14M7 21V5h11M7 5l13 3M12 8v5M9 13h6"/></svg></div><h3>Технический заказчик</h3><p>ИРД от участка до разрешения на строительство</p></div><div class="vc"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></div><h3>Реконструкция и строительство</h3><p>Проект, АГР, надзор, ввод и изменения в ЕГРН</p></div><div class="vc"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Легализация и земля</h3><p>819-ПП, КРТ, ВРИ, ПМТ и ПЗЗ, прохождение ГЗК</p></div><div class="vc"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg></div><h3>Кадастр и Росреестр</h3><p>Снятие приостановок, регистрация, изменения в ЕГРН</p></div><div class="vc"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3 3 6v15l6-3 6 3 6-3V3l-6 3z"/><path d="M9 3v15M15 6v15"/></svg></div><h3>ДГИ и город</h3><p>Выкуп по 159-ФЗ, споры, льготная аренда</p></div><div class="vc"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 6h10M5 21h14"/><path d="M7 6l-3 6a3 3 0 0 0 6 0z"/><path d="M17 6l-3 6a3 3 0 0 0 6 0z"/></svg></div><h3>Суды и споры</h3><p>Защита от сноса, банкротство, судебная экспертиза</p></div><div class="vc"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M10.85 12.15 20 3M16 7l3 3"/></svg></div><h3>Управление активами</h3><p>Эксплуатация, аренда, доходность объекта</p></div><div class="vc"><div class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></div><h3>Единое окно</h3><p>Один договор, один ответственный за объект</p></div></div>
+ <div class="snum"><span>KEO GROUP · Брендбук</span><span>06 / 8</span></div>
+</div></section>
+
+<section class="slide" style="background:#fff"><div class="in">
+ <div class="shead"><div class="eyebrow">Применение</div><h2>Логотип в деле</h2></div>
+ <div class="appgrid">
+  <div class="card-vis"><div><div class="wm">KEO <b>GROUP</b></div><small>Building connections and futures</small></div><div class="ct">Менеджер проекта<br>+7 499 647-75-66<br>info@keogroup.ru</div></div>
+  <div class="letter"><div class="wm">KEO <b>GROUP</b></div><div class="ln o"></div><div class="ln" style="margin-top:18px"></div><div class="ln s"></div><div class="ln"></div><div class="ln s"></div></div>
+  <div class="appfull">
+   <div class="sign">KEO <b>GROUP</b></div>
+   <div class="polo"><div class="wm">KEO <b>GROUP</b></div></div>
+   <div class="usb">KEO <b>GROUP</b></div>
+  </div>
+ </div>
+ <div class="snum"><span>KEO GROUP · Брендбук</span><span>07 / 8</span></div>
+</div></section>
+
+<section class="slide dark" style="align-items:center;text-align:center"><div class="in">
+ <div class="wordmark" style="font-size:clamp(38px,7vw,52px);margin-bottom:16px">KEO <b>GROUP</b></div>
+ <div class="eyebrow" style="color:var(--orange)">Контакты</div>
+ <h2 style="margin:10px 0 8px">Построим ваш проект под ключ</h2>
+ <div class="contacts">
+  <a href="tel:+74996477566">+7 499 647-75-66</a>
+  <a href="mailto:info@keogroup.ru">info@keogroup.ru</a>
+  <span>Москва, 2-й Южнопортовый проезд, 20А стр. 4</span>
+ </div>
+ <div class="snum"><span>KEO GROUP · Брендбук</span><span>08 / 8</span></div>
+</div></section>
+</body></html>

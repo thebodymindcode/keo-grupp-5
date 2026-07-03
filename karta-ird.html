@@ -1,0 +1,286 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Карта ИРД, KEO GROUP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#ef7320;--orange2:#d8620f;--ink:#2b2a2e;--ink2:#6d758d;--ink3:#9aa0b4;--line:#e8eaf2;--bg:#f6f7f9;--soft:#f1f2f6}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-snap-type:y proximity;scroll-behavior:smooth}
+body{font-family:"Montserrat",sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;line-height:1.5;text-rendering:optimizeLegibility}
+h1,h2,h3,h4{line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
+p,li{text-wrap:pretty}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--orange)}
+.slide{min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;position:relative;padding:54px clamp(28px,5vw,72px)}
+.snum{margin-top:auto;padding-top:26px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.04em;color:var(--ink3);font-weight:600}
+.in{width:100%;max-width:1180px;margin:0 auto}
+/* COVER */
+.cover{justify-content:space-between;color:#fff;background:linear-gradient(180deg,rgba(24,22,26,.6),rgba(22,20,24,.92)),url(./images/karta/cover.jpg) center/cover}
+.logo{font-family:"Archivo Black";font-size:23px;letter-spacing:-.01em}
+.logo b{color:var(--orange);font-weight:400}
+.logo small{display:block;font-family:"Montserrat";font-size:9.5px;font-weight:700;letter-spacing:.18em;color:rgba(255,255,255,.7);margin-top:4px}
+.cover h1{font-size:clamp(54px,11vw,124px);font-weight:800;line-height:.92;margin:14px 0 18px}
+.cover .sub{font-size:clamp(17px,2.3vw,23px);font-weight:500;color:rgba(255,255,255,.9);max-width:740px}
+.cstats{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.cs{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:16px 22px;min-width:150px}
+.cs b{display:block;font-size:30px;font-weight:800;color:var(--orange)}
+.cs span{font-size:13px;color:rgba(255,255,255,.84)}
+.cfoot{display:flex;justify-content:space-between;align-items:flex-end;font-size:13px;color:rgba(255,255,255,.7);gap:16px;flex-wrap:wrap}
+.cfoot .tag{font-size:15px;font-weight:700;color:#fff}
+.cover .snum{color:rgba(255,255,255,.5)}
+/* INTRO / WHY */
+.light{background:var(--bg);justify-content:center}
+.shead2{max-width:780px;margin-bottom:34px}
+.shead2 h2{font-size:clamp(30px,4.6vw,48px);font-weight:800;margin:10px 0 14px}
+.shead2 .lede{font-size:18px;color:var(--ink2)}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.vc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 14px 32px rgba(40,38,44,.05)}
+.vc .ic{width:50px;height:50px;border-radius:14px;background:#fdeede;color:var(--orange2);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.vc .ic svg{width:25px;height:25px}
+.vc h3{font-size:18px;margin-bottom:8px}
+.vc p{font-size:14.5px;color:var(--ink2)}
+.keo-line{margin-top:30px;font-size:18px;max-width:880px}
+.keo-line b{color:var(--orange2)}
+/* JOURNEY */
+.journey{background:var(--ink);color:#fff;justify-content:center}
+.journey .shead2 h2{color:#fff}.journey .shead2 .lede{color:rgba(255,255,255,.72)}
+.journey .snum{color:rgba(255,255,255,.4)}
+.jrow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.jc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;overflow:hidden}
+.jc-img{height:120px;background:center/cover;background-color:#26242a}
+.jc-b{padding:16px}
+.jc-n{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+.jc-b h4{font-size:15.5px;margin:6px 0 8px;color:#fff}
+.jc-b p{font-size:12.5px;color:rgba(255,255,255,.66);line-height:1.45}
+/* SECTION SLIDES */
+.sslide{padding:0}
+.sband{height:200px;background-size:cover;background-position:center;display:flex;align-items:flex-end;flex:0 0 auto}
+.sband-in{padding:24px clamp(28px,5vw,72px);width:100%;max-width:1224px;margin:0 auto}
+.sband-tag{color:#fff;font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.sbody{flex:1;display:flex;flex-direction:column;justify-content:center;padding:38px clamp(28px,5vw,72px) 0;width:100%;max-width:1224px;margin:0 auto}
+.shead{display:flex;align-items:flex-start;gap:14px;margin-bottom:26px}
+.sn{flex:0 0 auto;width:46px;height:46px;border-radius:13px;background:var(--ink);color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center}
+.shead h2{font-size:clamp(21px,3.2vw,34px);font-weight:800;margin-top:3px;min-width:0;overflow-wrap:normal}
+.tl{list-style:none;counter-reset:s;columns:1;column-gap:34px}
+.tl.cols2{columns:2}.tl.cols3{columns:3}
+.tl li{counter-increment:s;position:relative;padding:9px 0 9px 32px;font-size:14px;color:var(--ink2);line-height:1.4;break-inside:avoid;border-bottom:1px solid var(--line)}
+.tl li::before{content:counter(s);position:absolute;left:0;top:8px;font-size:11px;font-weight:800;color:var(--orange2);background:var(--soft);width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center}
+.sslide .snum{padding:26px clamp(28px,5vw,72px);max-width:1224px;margin:0 auto;width:100%}
+/* CLOSING */
+.closing{background:var(--ink);color:#fff;text-align:center;justify-content:center}
+.closing h2{font-size:clamp(30px,5vw,52px);font-weight:800;margin-bottom:16px}
+.closing .lede{font-size:18px;color:rgba(255,255,255,.82);max-width:660px;margin:0 auto 30px}
+.contacts{display:flex;justify-content:center;flex-wrap:wrap;gap:14px}
+.contacts a,.contacts span{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:13px 21px;color:#fff;text-decoration:none;font-weight:600;font-size:14.5px}
+.closing .snum{color:rgba(255,255,255,.4)}
+@media(max-width:880px){
+ .cards3,.cards4{grid-template-columns:1fr}
+ .jrow{grid-template-columns:1fr}
+ .tl.cols2,.tl.cols3{columns:1}
+ .slide{min-height:auto;padding:40px 22px}
+ .shead2 h2{font-size:25px;line-height:1.14}
+ .closing h2{font-size:26px}
+ .cover h1{font-size:60px}
+ .shead h2{font-size:17.5px;line-height:1.18}
+ .sslide{padding:0}.sbody{padding:28px 22px 0}
+}
+@media print{
+ @page{size:A4 portrait;margin:0}
+ html{scroll-snap-type:none}
+ body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .slide{min-height:auto;height:297mm;page-break-after:always;overflow:hidden}
+ .tl.cols3{columns:3}.tl.cols2{columns:2}
+}
+</style></head>
+<body>
+
+<section class="slide cover">
+ <div class="in" style="display:flex;flex-direction:column;justify-content:space-between;flex:1">
+  <div class="logo">KEO <b>GROUP</b><small>НЕДВИЖИМОСТЬ ПОД КЛЮЧ</small></div>
+  <div>
+   <div class="eyebrow">Единое окно технического заказчика</div>
+   <h1>Карта ИРД</h1>
+   <p class="sub">Девелоперский проект жилого дома в Москве: весь путь от участка до разрешения на строительство, одним окном и одним договором.</p>
+   <div class="cstats">
+    <div class="cs"><b>16</b><span>направлений ИРД</span></div>
+    <div class="cs"><b>152</b><span>задачи под контролем</span></div>
+    <div class="cs"><b>5</b><span>фаз проекта</span></div>
+    <div class="cs"><b>до РнС</b><span>и заход в стройку</span></div>
+   </div>
+  </div>
+  <div class="cfoot"><span class="tag">Берём все функции заказчика на себя</span><span>KEO GROUP · Москва · +7 499 647-75-66</span></div>
+ </div>
+</section>
+
+<section class="slide light"><div class="in">
+ <div class="shead2"><div class="eyebrow">Что это</div><h2>Единое окно технического заказчика</h2>
+  <p class="lede">По статьям 45‑51 Градостроительного кодекса заказчик собирает всю исходно-разрешительную документацию: от прав на землю до разрешения на строительство. Мы берём эту роль на себя целиком, ведём проект, проектирование и генподряд.</p></div>
+ <div class="cards3">
+  <div class="vc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M8 13h8M8 17h6"/></svg></div><h3>Один договор</h3><p>Весь цикл девелопмента на одном контракте, без зоопарка подрядчиков и потерянных стыков.</p></div>
+  <div class="vc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M16.5 11.5l1.8 1.8L22 9.6"/></svg></div><h3>Один ответственный</h3><p>За проект отвечает KEO. Согласования по всем ведомствам ведём параллельно, единым окном.</p></div>
+  <div class="vc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="19" r="2.4"/><circle cx="12" cy="12" r="2.4"/><path d="M5 16.6V14a2 2 0 0 1 2-2h3"/><path d="M14 12h3a2 2 0 0 0 2-2V4"/><path d="M16.5 5.5L19 3l2.5 2.5"/></svg></div><h3>От земли до РнС</h3><p>Доводим до положительной экспертизы, разрешения на строительство и захода в стройку.</p></div>
+ </div>
+ <p class="keo-line">КЕО это <b>Качество</b>, <b>Единство</b> и <b>Ответственность</b>. А для девелопера, его Качественное Единое Окно на весь проект.</p>
+ <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>02 / 21</span></div>
+</div></section>
+
+<section class="slide journey"><div class="in">
+ <div class="shead2"><div class="eyebrow">Маршрут проекта</div><h2>От участка до разрешения на строительство</h2>
+  <p class="lede">Все 16 направлений ИРД мы ведём как единый маршрут, пятью фазами. По каждой задаче держим статус, срок и ответственного.</p></div>
+ <div class="jrow"><div class="jc"><div class="jc-img" style="background-image:url(./images/karta/zemlya.jpg)"></div><div class="jc-b"><div class="jc-n">Фаза 01</div><h4>Земля и права</h4><p>Берём участок и приводим его в форму под проект: права, границы, ВРИ, кадастр, обременения.</p></div></div><div class="jc"><div class="jc-img" style="background-image:url(./images/karta/proekt.jpg)"></div><div class="jc-b"><div class="jc-n">Фаза 02</div><h4>Градостроительная основа</h4><p>Готовим градостроительный каркас и проводим архитектуру через все инстанции, вплоть до Мэра.</p></div></div><div class="jc"><div class="jc-img" style="background-image:url(./images/karta/izyskaniya.jpg)"></div><div class="jc-b"><div class="jc-n">Фаза 03</div><h4>Изыскания, сети и условия</h4><p>Собираем техническую и средовую основу: изыскания, сети, экологию, охранные и транспортные ограничения.</p></div></div><div class="jc"><div class="jc-img" style="background-image:url(./images/karta/ploschadka.jpg)"></div><div class="jc-b"><div class="jc-n">Фаза 04</div><h4>Площадка и спецтребования</h4><p>Закрываем спецтребования, готовим снос и выводим площадку в готовность к работам.</p></div></div><div class="jc"><div class="jc-img" style="background-image:url(./images/karta/dom.jpg)"></div><div class="jc-b"><div class="jc-n">Фаза 05</div><h4>Экспертиза и старт стройки</h4><p>Доводим до положительной экспертизы, получаем разрешение и заводим генподряд.</p></div></div></div>
+ <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>03 / 21</span></div>
+</div></section>
+
+<section class="slide sslide" id="s1">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/zemlya.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 01 · Земля и права</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">1</span><h2>Правоустанавливающие документы, земля, ЗУ, ОКС</h2></div>
+       <ol class="tl cols3"><li>Сбор правоустанавливающих документов на ЗУ и ОКС</li><li>Получение выписки ЕГРН на ЗУ</li><li>Получение выписок ЕГРН на существующие здания и сооружения</li><li>Проверка обременений, залогов, сервитутов, арендных отношений</li><li>Проверка и корректировка наложений границ ЗУ со смежными участками</li><li>Формирование и перераспределение земельного участка</li><li>Внесение изменений в ЕГРН по границам и характеристикам ЗУ</li><li>Установление и изменение ВРИ ЗУ</li><li>Определение и актуализация кадастровой стоимости ЗУ</li><li>Регистрация изменений в Росреестре</li><li>Оформление и переоформление ДАЗУ на период эксплуатации</li><li>Подготовка соглашений о расторжении или изменении действующих ДАЗУ</li><li>Получение ДС к ДАЗУ о переводе участка на строительство</li><li>Получение согласий залогодержателя или банка на земельно-имущественные действия</li><li>Согласование проектов земельно-имущественных документов внутри группы или с партнёром проекта</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>04 / 21</span></div>
+    </section><section class="slide sslide" id="s2">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/proekt.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 02 · Градостроительная основа</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">2</span><h2>Градостроительная документация: ПЗЗ, ППТ/ПМТ, ГПЗУ, ГЗК</h2></div>
+       <ol class="tl cols2"><li>Получение и анализ актуальных материалов ПЗЗ</li><li>Сопровождение ППМ о внесении изменений в ПЗЗ, если требуется изменение параметров</li><li>Получение и анализ материалов ППТ и ПМТ</li><li>Согласование ПМТ в ДГП</li><li>Получение РДГИ об утверждении ПМТ</li><li>Получение ГПЗУ</li><li>Получение решения рабочей группы ГЗК</li><li>Получение протокола и решения ГЗК</li><li>Получение сведений по ЗОУИТ</li><li>Проверка соответствия ТЭП проекта ГПЗУ, ПЗЗ, ППТ/ПМТ, ЗОУИТ и решениям ГЗК</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>05 / 21</span></div>
+    </section><section class="slide sslide" id="s3">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/proekt.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 02 · Градостроительная основа</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">3</span><h2>Архитектурно-градостроительное сопровождение, Мэр, АГР</h2></div>
+       <ol class="tl cols2"><li>Подготовка НПМ и пакета материалов для архитектурно-градостроительного рассмотрения</li><li>Согласование архитектуры внутри ГК</li><li>Подготовка материалов для прохождения проекта у Мэра Москвы</li><li>Подготовка презентации, ТЭП, посадки, визуализаций, 3D и low-poly модели</li><li>Согласование АГК.НПМ с Мэром</li><li>Согласование АГК.ВПМ с Мэром</li><li>Получение и согласование АГР</li><li>Увязка АГР с ГПЗУ, ПЗЗ, ППТ/ПМТ, транспортной схемой и инженерными ограничениями</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>06 / 21</span></div>
+    </section><section class="slide sslide" id="s4">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/izyskaniya.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 03 · Изыскания, сети и условия</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">4</span><h2>Инженерные изыскания и исходные технические материалы</h2></div>
+       <ol class="tl cols2"><li>Получение топографической съёмки и геоподосновы</li><li>Технический отчёт по инженерно-геодезическим изысканиям</li><li>Технический отчёт по инженерно-геологическим изысканиям</li><li>Технический отчёт по инженерно-экологическим изысканиям</li><li>Технический отчёт по инженерно-гидрометеорологическим изысканиям</li><li>Получение сведений о подземных коммуникациях</li><li>Получение сводного плана инженерных сетей</li><li>Согласование программы изысканий, если требуется</li><li>Положительное заключение экспертизы результатов инженерных изысканий</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>07 / 21</span></div>
+    </section><section class="slide sslide" id="s5">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/izyskaniya.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 03 · Изыскания, сети и условия</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">5</span><h2>Инженерное обеспечение, ТУ, КСИО, сети</h2></div>
+       <ol class="tl cols3"><li>ТУ на водоснабжение</li><li>ТУ на водоотведение</li><li>ТУ на ливневую канализацию</li><li>ТУ на теплоснабжение</li><li>ТУ на электроснабжение</li><li>ТУ на газоснабжение</li><li>ТУ на связь</li><li>ТУ на наружное освещение</li><li>ТУ на диспетчеризацию и ЕИРЦ</li><li>ТУ на вынос и перекладку инженерных сетей</li><li>Получение КСИО</li><li>Согласования балансодержателей инженерных сетей</li><li>Получение сведений Мосводостока</li><li>Получение сведений МОЭК</li><li>Получение сведений Россети Московский регион</li><li>Получение сведений Мосгаза</li><li>Получение сведений МГТС и операторов связи</li><li>Получение и согласование СКП по электроснабжению</li><li>Вынос ТП по СКП с Россети</li><li>Соглашения и договоры по выносу, переустройству и технологическому присоединению сетей</li><li>Актуализация ТУ после изменения ТЭП, посадки, ПЗЗ, ГПЗУ или АГР</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>08 / 21</span></div>
+    </section><section class="slide sslide" id="s6">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/izyskaniya.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 03 · Изыскания, сети и условия</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">6</span><h2>Экология, санитарные ограничения, природные условия</h2></div>
+       <ol class="tl cols2"><li>Справка о фоновых концентрациях</li><li>Климатическая справка</li><li>Шумовые характеристики от Генплана</li><li>Сведения о санитарно-защитных зонах</li><li>Заключение и исходные данные по санитарному разрыву от ЖД</li><li>Заключение и исходные данные по санитарному разрыву от гаражей</li><li>Сведения о водоохранных зонах и прибрежных защитных полосах</li><li>Исходные данные Росрыболовства</li><li>Заключение по шуму</li><li>Увязка экологических, санитарных и водных ограничений с посадкой здания, ГПЗУ, ПЗЗ и проектной документацией</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>09 / 21</span></div>
+    </section><section class="slide sslide" id="s7">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/izyskaniya.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 03 · Изыскания, сети и условия</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">7</span><h2>Объекты культурного наследия и археология</h2></div>
+       <ol class="tl cols2"><li>Выписка из городского реестра недвижимого культурного наследия</li><li>Фрагмент Историко-культурного опорного плана Москвы</li><li>Письмо ДКН и Мосгорнаследия о наличии или отсутствии ОКН и зон охраны</li><li>Археологические исходные данные</li><li>Дополнительные разъяснения ДКН по объёму историко-культурных исследований, если требуется</li><li>Заказ ИКОП и историко-культурных материалов, если требуется по письму ДКН</li><li>Увязка ограничений ОКН и археологии с проектными решениями и экспертизой</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>10 / 21</span></div>
+    </section><section class="slide sslide" id="s8">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/izyskaniya.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 03 · Изыскания, сети и условия</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">8</span><h2>Метрополитен, ФСО и специальные согласования</h2></div>
+       <ol class="tl cols2"><li>Получение сведений Московского метрополитена</li><li>Согласование с Московским метрополитеном</li><li>Согласование с ФСО России</li><li>Иные специальные согласования по зонам влияния, режимным объектам, спецтрассам и охранным зонам</li><li>Увязка специальных требований с посадкой здания, подземной частью, котлованом, стройгенпланом и проектной документацией</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>11 / 21</span></div>
+    </section><section class="slide sslide" id="s9">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/izyskaniya.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 03 · Изыскания, сети и условия</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">9</span><h2>Транспорт, УДС, НГПТ, въезды и выезды, ОДД</h2></div>
+       <ol class="tl cols2"><li>Исходные данные для раздела транспортного обслуживания территории</li><li>Справка по маршрутам НГПТ</li><li>Исходные данные по УДС и транспортной доступности</li><li>Разработка схемы транспортного обслуживания</li><li>Планировочное задание на объекты УДС</li><li>Согласования по въездам и выездам</li><li>Согласование ОДД, организации дорожного движения</li><li>Согласование временной схемы ОДД на период подготовительных, земляных и строительных работ</li><li>Увязка транспортной схемы с АГР, ГПЗУ, ПМТ, благоустройством и стройгенпланом</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>12 / 21</span></div>
+    </section><section class="slide sslide" id="s10">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/izyskaniya.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 03 · Изыскания, сети и условия</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">10</span><h2>Окружающая застройка, инсоляция, КЕО</h2></div>
+       <ol class="tl cols2"><li>Получение БТИ окружающей застройки</li><li>Поэтажные планы окружающих зданий для инсоляции</li><li>Заключение по инсоляции</li><li>Заключение по КЕО</li><li>Обследование окружающей застройки до начала работ</li><li>Программа мониторинга окружающей застройки</li><li>Установка марок и реперов мониторинга, если требуется</li><li>Увязка расчётов инсоляции, КЕО, шума и влияния строительства с проектной документацией</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>13 / 21</span></div>
+    </section><section class="slide sslide" id="s11">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/izyskaniya.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 03 · Изыскания, сети и условия</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">11</span><h2>Благоустройство, озеленение, дендрология</h2></div>
+       <ol class="tl cols2"><li>Исходные данные для благоустройства</li><li>Дендроплан</li><li>Перечётная ведомость зелёных насаждений</li><li>Порубочный билет и разрешение на пересадку</li><li>Согласование компенсационного озеленения</li><li>Увязка благоустройства с транспортной схемой, въездами и выездами, сетями, ОДД и АГР</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>14 / 21</span></div>
+    </section><section class="slide sslide" id="s12">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/ploschadka.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 04 · Площадка и спецтребования</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">12</span><h2>ГОЧС, РСВО, СМИС/СМИК, Росгвардия</h2></div>
+       <ol class="tl cols2"><li>Исходные данные для РСВО и ГОЧС</li><li>Исходные данные для ИТМ ГОЧС</li><li>ТУ и требования по РСВО и передаче сигнала</li><li>Исходные данные для СМИС и СМИК</li><li>Согласование Росгвардии по охране и тревожной сигнализации</li><li>Увязка требований ГОЧС, РСВО, СМИС/СМИК и Росгвардии с проектной документацией и экспертизой</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>15 / 21</span></div>
+    </section><section class="slide sslide" id="s13">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/ploschadka.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 04 · Площадка и спецтребования</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">13</span><h2>Банк, отлагательные условия, снос, обследования зданий</h2></div>
+       <ol class="tl cols2"><li>Реестр отлагательных условий по действующим договорам: бридж, опционы и иные</li><li>Реестр отлагательных условий по планируемым договорам: проектное финансирование, ДДУ, ПДКПН, мезонинное финансирование и иные</li><li>Согласие банка на снос залоговых объектов</li><li>Согласия залогодержателя на иные действия с объектами и ЗУ, если требуется</li><li>Техническое заключение по обследованию зданий под снос</li><li>Разработка и согласование ПОД на снос</li><li>Разработка ППР на снос</li><li>Получение разрешения на снос и уведомлений по сносу</li><li>Подготовка приказов и внутренних документов на снос</li><li>Увязка сноса с ОАТИ, временным ограждением, выносом сетей и подготовительными работами</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>16 / 21</span></div>
+    </section><section class="slide sslide" id="s14">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/ploschadka.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 04 · Площадка и спецтребования</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">14</span><h2>ОАТИ, подготовительные работы, стройплощадка, офис продаж</h2></div>
+       <ol class="tl cols3"><li>Ордер ОАТИ на подготовительные работы</li><li>Ордер ОАТИ на земляные работы</li><li>Согласование стройгенплана</li><li>Согласование временного ограждения стройплощадки</li><li>Согласования временных подключений на период строительства</li><li>Согласования выноса сетей</li><li>Временная дорога и временные подъезды на период строительства</li><li>Согласование временной схемы ОДД на период строительства</li><li>Организация временных подключений стройплощадки: электроснабжение, вода, канализация, связь, освещение</li><li>Выполнение требований ДИТ: камеры, замер шума, СКУД и иные технические требования</li><li>Подготовка документации по офису продаж на площадке</li><li>Увязка подготовительных работ с графиком сноса, выноса сетей, котлована и РнС</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>17 / 21</span></div>
+    </section><section class="slide sslide" id="s15">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/dom.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 05 · Экспертиза и старт стройки</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">15</span><h2>Экспертиза, КУ, разрешение на строительство</h2></div>
+       <ol class="tl cols2"><li>Комплектация проектной документации для экспертизы</li><li>Комплектация результатов инженерных изысканий для экспертизы</li><li>Подготовка комплекта документов для захода на КУ в экспертизу</li><li>Положительное заключение экспертизы проектной документации</li><li>Положительное заключение экспертизы результатов инженерных изысканий</li><li>Устранение замечаний экспертизы</li><li>Получение разрешения на строительство</li><li>Контроль выполнения условий РнС и переход к строительному блоку</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>18 / 21</span></div>
+    </section><section class="slide sslide" id="s16">
+     <div class="sband" style="background-image:linear-gradient(90deg,rgba(24,22,26,.86),rgba(24,22,26,.34)),url(./images/karta/dom.jpg)">
+       <div class="sband-in"><div class="sband-tag">Фаза 05 · Экспертиза и старт стройки</div></div></div>
+     <div class="sbody">
+       <div class="shead"><span class="sn">16</span><h2>Договор генерального подряда</h2></div>
+       <ol class="tl cols2"><li>Подготовка текста ДГП, согласованного банком</li><li>Подготовка приложений к ДГП</li><li>Лист ознакомления генподрядчика с условиями на площадке</li><li>Акт разбивки осей здания с визой ГП</li><li>Передача геологических изысканий с визой ГП</li><li>Исполнительная схема котлована</li><li>Подготовка и загрузка документов в АИС ОССиГ на весь грунт, перемещённый до получения РнС</li><li>Увязка ДГП с условиями проектного финансирования, отлагательными условиями, РнС, экспертизой, подготовительными работами и фактическим состоянием площадки</li></ol>
+     </div>
+     <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>19 / 21</span></div>
+    </section>
+
+<section class="slide light"><div class="in">
+ <div class="shead2"><div class="eyebrow">Почему KEO</div><h2>Почему девелоперы отдают это нам</h2></div>
+ <div class="cards4">
+  <div class="vc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.4 20a5.6 5.6 0 0 1 11.2 0"/><path d="M16.2 5.4a3.2 3.2 0 0 1 0 6.2"/><path d="M17.6 14.3A5.6 5.6 0 0 1 21 19.6"/></svg></div><h3>Все компетенции в штате</h3><p>Юристы, кадастровые инженеры и градостроители работают вместе, без перекидывания ответственности.</p></div>
+  <div class="vc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H13z"/></svg></div><h3>Параллельно, без простоев</h3><p>Ведём согласования по всем ведомствам сразу, по мастер-графику со сроками и зависимостями.</p></div>
+  <div class="vc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Сложные позиции</h3><p>Красные линии, СЗЗ, ОКН, метро и ФСО, банковские отлагательные условия, всё закрываем сами.</p></div>
+  <div class="vc"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>Прозрачно</h3><p>Видите проект целиком: статус каждой задачи, контрольные документы и точку готовности к стройке.</p></div>
+ </div>
+ <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>20 / 21</span></div>
+</div></section>
+
+<section class="slide closing"><div class="in">
+ <div class="eyebrow" style="color:var(--orange)">Результат</div>
+ <h2>Положительная экспертиза, разрешение на строительство, заход в стройку</h2>
+ <p class="lede">Расскажите про участок и проект. Проведём аудит, соберём мастер-график ИРД и доведём до старта стройки.</p>
+ <div class="contacts">
+  <a href="tel:+74996477566">+7 499 647-75-66</a>
+  <a href="mailto:info@keogroup.ru">info@keogroup.ru</a>
+  <span>Москва, 2-й Южнопортовый проезд, 20А стр. 4</span>
+ </div>
+ <div class="snum"><span>KEO GROUP · Карта ИРД</span><span>21 / 21</span></div>
+</div></section>
+</body></html>
