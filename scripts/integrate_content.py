@@ -11,7 +11,7 @@ import json, re, sys, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 IDX = ROOT / "index.html"
 CONTENT = ROOT / "_content"
-FIELDS = ["group","title","lede","badge","img","updated","scenarios","pains","steps",
+FIELDS = ["group","title","lede","ledePoints","badge","img","updated","scenarios","pains","steps",
           "stats","tariffs","cases","micro","faq","seo"]
 
 def js(v):
