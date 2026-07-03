@@ -163,8 +163,8 @@
   form.lead{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:30px;box-shadow:var(--sh)}
   .fld{margin-bottom:16px}
   .fld label{display:block;font-size:13px;font-weight:700;margin-bottom:7px;color:var(--navy)}
-  .fld input,.fld select{width:100%;background:var(--soft);border:1.5px solid var(--line2);border-radius:12px;padding:14px;color:var(--navy);font-size:16px;font-family:inherit;outline:none;transition:border-color .15s,box-shadow .15s}
-  .fld input:focus,.fld select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(53,184,252,.18);background:#fff}
+  .fld input,.fld select,.fld textarea{width:100%;background:var(--soft);border:1.5px solid var(--line2);border-radius:12px;padding:14px;color:var(--navy);font-size:16px;font-family:inherit;outline:none;transition:border-color .15s,box-shadow .15s}
+  .fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(53,184,252,.18);background:#fff}
   .fld input.bad,.fld select.bad{border-color:#e5484d}
   .err{color:#e5484d;font-size:12.5px;margin-top:6px;display:none}.err.show{display:block}
   .agree{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink2);cursor:pointer;font-weight:500}
@@ -369,7 +369,7 @@
 <div class="cback" id="cback"><div class="cmodal">
   <button class="x" id="cbx" aria-label="Закрыть">×</button>
   <h3 style="margin-bottom:6px">Заказать обратный звонок</h3>
-  <p class="muted" style="font-size:13.5px;margin-bottom:18px">Оставьте телефон, эксперт KEO GROUP перезвонит и разберёт вашу ситуацию.</p>
+  <p class="muted" style="font-size:13.5px;margin-bottom:18px">Оставьте телефон, эксперт KEO GROUP перезвонит в течение 2 часов в рабочее время.</p>
   <form id="cbform" novalidate>
     <div class="fld"><label for="cb-name">Как к вам обращаться</label><input id="cb-name" name="name" placeholder="Имя"><div class="err" id="cb-en">Впишите имя</div></div>
     <div class="fld"><label for="cb-phone">Телефон</label><input id="cb-phone" name="phone" placeholder="+7 999 123 45 67" inputmode="tel"><div class="err" id="cb-ep">Проверьте телефон</div></div>
@@ -606,15 +606,17 @@ function leadForm(prefill){const opts=SERVICES.map(s=>`<option${prefill===s.slug
   return `<form class="lead" id="leadform" novalidate>
     <h3 style="margin-bottom:6px">Получить разбор объекта</h3>
     <p class="muted" style="font-size:13.5px;margin-bottom:18px">Оставьте заявку, эксперт перезвонит, разберёт ситуацию и предложит план, сроки и стоимость.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px"><span class="chip" style="padding:7px 13px;font-size:12.5px;font-weight:700"><span style="color:var(--green);margin-right:6px">●</span>Отвечаем в рабочее время</span></div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px"><span class="chip" style="padding:7px 13px;font-size:12.5px;font-weight:700"><span style="color:var(--green);margin-right:6px">●</span>Перезвоним в течение 2 часов в рабочее время</span></div>
     <div class="card" style="background:var(--soft);box-shadow:none;padding:14px 16px;margin-bottom:18px"><div class="muted" style="font-size:12.5px;font-weight:700;margin-bottom:6px">Что будет после заявки</div><div class="muted" style="font-size:13px">Разбор объекта → план и стоимость → договор с гарантией</div></div>
     <div class="fld"><label for="f-name">Как к вам обращаться</label><input id="f-name" name="name" placeholder="Имя" autocomplete="name"><div class="err" id="e-name">Впишите имя</div></div>
     <div class="fld"><label for="f-phone">Телефон</label><input id="f-phone" name="phone" placeholder="+7 999 123 45 67" inputmode="tel" autocomplete="tel"><div class="err" id="e-phone">Проверьте телефон, кажется коротковат</div></div>
     <div class="fld"><label for="f-svc">Услуга</label><select id="f-svc" name="service"><option value="">Выберите направление</option>${opts}</select></div>
+    <div class="fld"><label for="f-task">Кратко о задаче <span style="color:var(--ink2);font-weight:400">(необязательно)</span></label><textarea id="f-task" name="task" rows="2" placeholder="Например: приостановка по техплану, помещение 250 кв.м" style="resize:vertical;min-height:52px"></textarea></div>
     <input type="hidden" name="_subject" value="Заявка с сайта KEO GROUP">
     <div class="hp"><label>Не заполняйте<input name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
     <label class="agree" style="margin:4px 0 18px"><input type="checkbox" id="f-agree"><span>Согласен на обработку данных по <a href="#/politika">политике конфиденциальности</a></span></label>
     <button type="submit" class="btn primary" id="f-submit" style="width:100%">Отправить заявку</button>
+    <a href="${CO.tg}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;padding:12px;border:1px solid var(--line);border-radius:12px;font-weight:700;font-size:14px;color:var(--navy)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2AABEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>Или напишите в Telegram</a>
     <div class="formnote" id="f-note"></div>
     <div class="okmsg" id="f-ok">Спасибо, заявка принята. Эксперт KEO GROUP свяжется с вами в ближайшее время.</div>
   </form>`;}
@@ -1373,13 +1375,29 @@ function richLanding(slug){const d=RICH[slug];if(!d)return null;const s=svcBySlu
 }
 
 /* ===== ФОРМА ===== */
+function phoneMask(inp){
+  inp.addEventListener('input',()=>{
+    let d=inp.value.replace(/\D/g,'');
+    if(d.startsWith('8'))d='7'+d.slice(1);
+    if(d && !d.startsWith('7'))d='7'+d;
+    d=d.slice(0,11);
+    let out='';
+    if(d.length){out='+7';
+      if(d.length>1)out+=' ('+d.slice(1,4);
+      if(d.length>=4)out+=') '+d.slice(4,7);
+      if(d.length>=7)out+='-'+d.slice(7,9);
+      if(d.length>=9)out+='-'+d.slice(9,11);}
+    inp.value=out;
+  });
+}
+
 function wireForm(){
   const f=document.getElementById('leadform'); if(!f) return;
   const name=document.getElementById('f-name'),phone=document.getElementById('f-phone'),agree=document.getElementById('f-agree'),
         submit=document.getElementById('f-submit'),note=document.getElementById('f-note'),ok=document.getElementById('f-ok');
   const eN=document.getElementById('e-name'),eP=document.getElementById('e-phone');
   note.textContent=FORM_ENDPOINT?'':'Демо-режим: проверка полей работает, заявка пока не уходит. Впишите адрес Formspree в Настройках панели.';
-  const okPhone=()=>phone.value.replace(/\D/g,'').length>=10, okName=()=>name.value.trim().length>=2;
+  const okPhone=()=>phone.value.replace(/\D/g,'').length===11, okName=()=>name.value.trim().length>=2; phoneMask(phone);
   function mark(el,e,good){el.classList.toggle('bad',!good);e.classList.toggle('show',!good);}
   function refresh(){submit.disabled=!(okName()&&okPhone()&&agree.checked);submit.style.opacity=submit.disabled?.55:1;}
   [name,phone].forEach(el=>el.addEventListener('input',refresh));
@@ -1445,11 +1463,11 @@ window.openLetter=function(src,org){var lb=document.getElementById('lbox');docum
   function open(){back.classList.add('open');}function close(){back.classList.remove('open');}
   btn.onclick=open;document.getElementById('cbx').onclick=close;
   back.addEventListener('click',function(e){if(e.target===back)close();});
-  var f=document.getElementById('cbform'),nm=document.getElementById('cb-name'),ph=document.getElementById('cb-phone'),ag=document.getElementById('cb-agree'),sb=document.getElementById('cb-submit'),note=document.getElementById('cb-note'),ok=document.getElementById('cb-ok');
+  var f=document.getElementById('cbform'),nm=document.getElementById('cb-name'),ph=document.getElementById('cb-phone'),ag=document.getElementById('cb-agree'),sb=document.getElementById('cb-submit'),note=document.getElementById('cb-note'),ok=document.getElementById('cb-ok');phoneMask(document.getElementById('cb-phone'));
   var en=document.getElementById('cb-en'),ep=document.getElementById('cb-ep');
   note.textContent=FORM_ENDPOINT?'':'Демо-режим: заявка пока не уходит. Впишите адрес Formspree в Настройках.';
   f.addEventListener('submit',async function(e){e.preventDefault();
-    var okN=nm.value.trim().length>=2,okP=ph.value.replace(/\D/g,'').length>=10;
+    var okN=nm.value.trim().length>=2,okP=ph.value.replace(/\D/g,'').length===11;
     nm.classList.toggle('bad',!okN);en.classList.toggle('show',!okN);ph.classList.toggle('bad',!okP);ep.classList.toggle('show',!okP);
     if(!(okN&&okP&&ag.checked))return;
     if(f._gotcha&&f._gotcha.value)return;
