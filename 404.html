@@ -122,6 +122,7 @@
   .hero .cta{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
   .hero .pic{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh);aspect-ratio:4/3.2}
   .hero .pic img{width:100%;height:100%;object-fit:cover}
+  @media(min-width:761px){.hero .pic{aspect-ratio:auto;align-self:stretch;min-height:420px}}
   .hero .badge{position:absolute;left:18px;bottom:18px;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-radius:16px;padding:14px 18px;box-shadow:var(--sh)}
   .hero .badge b{display:block;font-size:26px;font-weight:800;color:var(--blue2);line-height:1}
   .hero .badge span{font-size:12.5px;color:var(--ink2);font-weight:600}
@@ -216,6 +217,7 @@
   @media(max-width:600px){.art-key{flex-direction:column;align-items:flex-start;gap:8px}.art-key-n{max-width:none}}
   .chips{display:flex;flex-wrap:wrap;gap:12px}
   .chip{display:inline-flex;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:11px 20px;font-weight:700;font-size:14.5px;color:var(--navy);box-shadow:var(--sh);white-space:nowrap}
+  @media(max-width:600px){.chip{white-space:normal;text-align:center;line-height:1.35}}
   .clogos{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
   .clogo{display:flex;align-items:center;justify-content:center;text-align:center;min-height:88px;padding:20px 16px;background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);font-weight:800;font-size:16px;letter-spacing:.01em;color:#8a90a6;filter:grayscale(1);transition:color .2s,transform .2s}
   .clogo:hover{color:var(--navy);transform:translateY(-3px)}
@@ -770,7 +772,7 @@ PAGES["/o-kompanii"]=()=>`
       <li style="display:flex;gap:11px;align-items:flex-start;font-size:15.5px;color:var(--ink2)"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:#fdf0e4;margin-top:1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ef7320" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Основатели в недвижимости больше 25 лет</span></li>
       <li style="display:flex;gap:11px;align-items:flex-start;font-size:15.5px;color:var(--ink2)"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:#fdf0e4;margin-top:1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ef7320" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Собственный проектный отдел, СРО и аккредитации Росаккредитации</span></li>
       <li style="display:flex;gap:11px;align-items:flex-start;font-size:15.5px;color:var(--ink2)"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:#fdf0e4;margin-top:1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ef7320" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Часть специалистов раньше работали в Росреестре и БТИ</span></li>
-      <li style="display:flex;gap:11px;align-items:flex-start;font-size:15.5px;color:var(--ink2)"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:#fdf0e4;margin-top:1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ef7320" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>С 2023 года ведём управление коммерческой недвижимостью</span></li>
+      <li style="display:flex;gap:11px;align-items:flex-start;font-size:15.5px;color:var(--ink2)"><span style="flex:0 0 auto;width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;background:#fdf0e4;margin-top:1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#ef7320" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Объекты в управлении команды с 2009 года</span></li>
      </ul>
      <div class="cta"><a class="btn primary bracket" href="#/kontakty">Обсудить проект</a><a class="btn ghost bracket" href="#/keysy">Портфолио</a></div>
    </div>
@@ -1203,7 +1205,7 @@ function richMgmt(){const g=groupByKey("upravlenie");
     <div><p class="crumbs"><a href="#/">Главная</a> / <a href="#/uslugi">Услуги</a> / <a href="#/g/upravlenie">Управление активами</a> / <span>Управление недвижимостью</span></p>
       <div class="eyebrow">Управляющая компания полного цикла</div>
       <h1>Управление коммерческой недвижимостью</h1>
-      <p class="lede">Снимаем с собственника все заботы: техническое обслуживание, арендаторы, финансы, юридическое сопровождение. Направление KEO GROUP с 2023 года, компания на рынке с 2010. Берём в управление торговую, офисную, складскую и производственную недвижимость.</p>
+      <p class="lede">Снимаем с собственника все заботы: техническое обслуживание, арендаторы, финансы, юридическое сопровождение. Объекты в управлении команды с 2009 года, компания на рынке с 2010. Берём в управление торговую, офисную, складскую и производственную недвижимость.</p>
       <div class="cta"><a class="btn primary bracket" href="#/kontakty">Передать объект в управление</a><a class="btn ghost bracket" href="#/ceny">Тарифы</a></div>
     </div>
     <div class="pic"><img src="./images/land/upravlenie.jpg" alt="Управление коммерческой недвижимостью"><div class="badge"><b>5%</b><span>от арендного потока, тариф «Минимум»</span></div></div>
