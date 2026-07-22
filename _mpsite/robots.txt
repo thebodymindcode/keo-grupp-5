@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# следы старого WordPress: хостинг отдаёт на них заглушку с кодом 200,
+# робот принимает это за пустые страницы. Не пускаем его туда.
+Disallow: /wp-admin
+Disallow: /wp-includes
+Disallow: /wp-content
+Disallow: /wp-snapshots
+Disallow: /wp-login.php
+Disallow: /xmlrpc.php
+
+# рекламные метки не создают дублей страниц
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid&_openstat&p&page_id&cat
+
+Sitemap: https://keogroup.ru/sitemap.xml

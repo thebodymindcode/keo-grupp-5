@@ -1,0 +1,83 @@
+# keogroup.ru — статический сайт KEO GROUP
+AddDefaultCharset UTF-8
+Options -Indexes
+DirectoryIndex index.html
+
+# ============ ЗАГОЛОВКИ БЕЗОПАСНОСТИ ============
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# Принудительный HTTPS
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ===== СЛЕДЫ СТАРОГО ВЗЛОМАННОГО WORDPRESS: 410 Gone (Яндекс выкинет из индекса) =====
+RewriteRule ^index\.php - [G,L]
+RewriteRule ^(wp-admin|wp-includes|wp-content|wp-snapshots)(/.*)?$ - [G,L]
+RewriteRule ^wp-[a-z0-9-]*\.php$ - [G,L]
+RewriteRule ^xmlrpc\.php$ - [G,L]
+RewriteRule ^(page-sitemap|post-sitemap|category-sitemap|wp-sitemap)[a-z0-9-]*\.xml$ - [G,L]
+RewriteRule ^(_tools|parser|keys|cgi-bin)(/.*)?$ - [G,L]
+RewriteRule ^(phpinfo|asa|send_form|readme|license)[a-z0-9_.-]*$ - [G,L]
+
+# Короткие адреса для рекламы (301 на посадочные)
+RewriteRule ^krt/?$ https://keogroup.ru/u/krt-zashchita/ [R=301,L]
+RewriteRule ^dgi/?$ https://keogroup.ru/u/dgi-vykup-159fz/ [R=301,L]
+RewriteRule ^rosreestr/?$ https://keogroup.ru/u/rosreestr-priostanovki/ [R=301,L]
+RewriteRule ^legalizatsiya/?$ https://keogroup.ru/u/legalizaciya-819pp/ [R=301,L]
+RewriteRule ^vri/?$ https://keogroup.ru/u/vri-zemelnogo-uchastka/ [R=301,L]
+
+# Квиз и калькулятор (короткие адреса для рекламы, редирект на SPA-роуты)
+RewriteRule ^razbor/?$ https://keogroup.ru/#/razbor [R=302,NE,L]
+RewriteRule ^kalkulyator/?$ https://keogroup.ru/#/kalkulyator [R=302,NE,L]
+
+# Существующие файлы и папки отдаём как есть (главная и /u/slug/ существуют)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Несуществующее -> честный 404. SPA работает через hash-роуты (#/...),
+# они не доходят до сервера, поэтому подмена главной не нужна. Раньше здесь
+# был fallback на index.html, из-за него Яндекс видел soft-404 (200 вместо 404).
+RewriteRule ^ - [R=404,L]
+</IfModule>
+
+ErrorDocument 404 /404.html
+ErrorDocument 410 /404.html
+
+# Служебные файлы и логи закрыты от прямого доступа
+<FilesMatch "\.(log|bkp|sql|gz|sh|ini|conf|passfile|key|pem|rsa)$">
+Require all denied
+</FilesMatch>
+# Скрытые файлы (.git, .env, .htaccess и т.п.) кроме подтверждений (.well-known)
+<FilesMatch "^\.(?!well-known)">
+Require all denied
+</FilesMatch>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/html "access plus 0 seconds"
+ExpiresByType text/css "access plus 1 month"
+ExpiresByType application/javascript "access plus 1 month"
+ExpiresByType image/jpeg "access plus 6 months"
+ExpiresByType image/png "access plus 6 months"
+ExpiresByType image/webp "access plus 6 months"
+ExpiresByType image/svg+xml "access plus 6 months"
+ExpiresByType image/x-icon "access plus 1 year"
+ExpiresByType font/woff2 "access plus 1 year"
+ExpiresByType application/pdf "access plus 1 month"
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml application/xml
+</IfModule>

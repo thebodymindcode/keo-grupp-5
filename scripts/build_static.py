@@ -20,13 +20,14 @@ from pathlib import Path
 
 SITE_DIR = Path(__file__).resolve().parent.parent
 INDEX = SITE_DIR / "index.html"
-BASE_URL = "https://thebodymindcode.github.io/keo-grupp-5/"
+BASE_URL = "https://keogroup.ru/"
 
 PHONE = "+7 (499) 647-75-66"
 PHONE_TEL = "+74996477566"
 EMAIL = "info@keogroup.ru"
 ADDRESS = "Москва, 2-й Южнопортовый проезд, 20А стр. 4"
 METRO = "м. Кожуховская"
+TELEGRAM = "keogroup"  # username Telegram (уточнить у владельца, поставить точный)
 
 # ───────────────────────── мини-парсер JS-литералов ─────────────────────────
 # Данные в index.html лежат JS-литералами (объекты с ключами без кавычек,
@@ -211,7 +212,7 @@ def esc(s):
 
 
 CSS = """
-:root{--orange:#ef7320;--navy:#1c2430;--muted:#5b6570;--line:#e7e9ee;--bg:#f7f8fa}
+:root{--orange:#ef7320;--orange2:#d8620f;--navy:#1c2430;--muted:#5b6570;--line:#e7e9ee;--bg:#f7f8fa;--soft:#f2f4f7;--ink3:#9aa0b4}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Montserrat',Arial,sans-serif;color:var(--navy);background:#fff;line-height:1.6;font-size:16px}
 .wrap{max-width:960px;margin:0 auto;padding:0 20px}
@@ -254,13 +255,174 @@ ul.plain li:before{content:"";position:absolute;left:2px;top:17px;width:9px;heig
 footer{border-top:1px solid var(--line);margin-top:36px;padding:24px 0 34px;font-size:13.5px;color:var(--muted)}
 a{color:var(--orange)}
 @media(max-width:640px){.cards{grid-template-columns:1fr}}
+/* ===== ВЕРХНЕЕ МЕНЮ ===== */
+.mainnav{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:50}
+.navwrap{display:flex;align-items:center;gap:18px;padding:12px 0}
+.mainnav .logo{font-weight:800;font-size:19px;color:var(--navy);text-decoration:none}
+.mainnav .logo span{color:var(--orange)}
+.navlinks{display:flex;gap:20px;flex:1;flex-wrap:wrap}
+.navlinks a{color:var(--navy);text-decoration:none;font-weight:600;font-size:15px}
+.navlinks a:hover{color:var(--orange)}
+.navphone{color:var(--navy);font-weight:800;text-decoration:none;font-size:16px;white-space:nowrap}
+@media(max-width:860px){
+  .mainnav{position:static}
+  .navwrap{padding:12px 18px;gap:10px;justify-content:space-between}
+  .navlinks{display:none}
+  .mainnav .logo{font-size:17px}
+  .navphone{font-size:15px}
+}
+/* ===== СТАТЬЯ-ЛОНГРИД ===== */
+.article{max-width:820px}
+/* HERO с картинкой */
+.ahero{border-radius:20px;overflow:hidden;background-size:cover;background-position:center;margin:8px 0 22px;min-height:340px;display:flex;align-items:flex-end}
+.ahero-in{padding:26px 30px;color:#fff;width:100%}
+.ahero .crumbs.light{color:rgba(255,255,255,.85);font-size:13px;margin:0 0 10px}
+.ahero .crumbs.light a{color:#fff}
+.ahero .eyebrow.light{color:#ffb877;font-weight:800;font-size:13px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.ahero h1{font-size:36px;line-height:1.12;margin:0;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.3)}
+.article .lede{font-size:18.5px;line-height:1.6;color:#333;margin:0 0 18px}
+/* КАРТОЧКИ КЛЮЧЕВЫХ ФАКТОВ */
+.statcards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0 6px}
+.statcard{background:linear-gradient(160deg,#fff,#fbf7f2);border:1px solid var(--line);border-radius:16px;padding:16px 16px 15px;box-shadow:0 4px 16px rgba(40,38,44,.05)}
+.statcard b{display:block;font-size:24px;font-weight:800;color:var(--orange);line-height:1.05;margin-bottom:6px}
+.statcard span{font-size:12.5px;color:#555;line-height:1.4}
+@media(max-width:720px){.statcards{grid-template-columns:1fr 1fr}.ahero h1{font-size:26px}.ahero{min-height:250px}}
+.toc{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:22px 0}
+.toc-t{font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);margin-bottom:8px}
+.toc ol{margin:0;padding-left:20px}.toc li{padding:4px 0;font-size:15.5px}
+.toc a{color:var(--navy);text-decoration:none;border-bottom:1px solid transparent}
+.toc a:hover{color:var(--orange);border-bottom-color:var(--orange)}
+.asec{margin:30px 0}
+.asec h2{font-size:25px;line-height:1.2;margin:34px 0 14px;scroll-margin-top:80px}
+.asec h3{font-size:19px;margin:22px 0 10px}
+.asec p{font-size:16.5px;line-height:1.7;margin:0 0 14px;color:#26262b}
+.asec ul,.asec ol{margin:0 0 16px;padding-left:24px}
+.asec li{font-size:16.5px;line-height:1.65;margin-bottom:7px}
+.asec table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px;box-shadow:0 3px 14px rgba(40,38,44,.05);border-radius:10px;overflow:hidden}
+.asec th,.asec td{border-bottom:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}
+.asec thead th{background:var(--navy);color:#fff;font-weight:700;border:0}
+.asec tbody tr:nth-child(even){background:var(--soft)}
+.asec td:first-child{font-weight:600;color:var(--navy)}
+/* АКЦЕНТЫ в тексте */
+.asec strong,.asec b{color:var(--orange2);font-weight:700}
+.asec mark{background:linear-gradient(180deg,transparent 55%,#ffe0b8 55%);color:inherit;padding:0 1px;font-weight:600}
+.asec ul li::marker{color:var(--orange)}
+.asec ol li::marker{color:var(--orange);font-weight:700}
+/* ВРЕЗКИ (важно / на заметку / совет) */
+.callout{border-radius:14px;padding:15px 18px 15px 20px;margin:20px 0;font-size:16px;line-height:1.6;border-left:4px solid var(--orange);background:#fff7ef}
+.callout .cl-t{display:block;font-weight:800;font-size:13px;letter-spacing:.03em;text-transform:uppercase;margin-bottom:5px;color:var(--orange2)}
+.callout.imp{border-left-color:#e5484d;background:#fdeeee}
+.callout.imp .cl-t{color:#c73b40}
+.callout.tip{border-left-color:#1e9e63;background:#eefaf2}
+.callout.tip .cl-t{color:#178452}
+.callout p{margin:0}
+.callout p+p{margin-top:8px}
+.article .faq{border-top:1px solid var(--line);padding:16px 0}
+.article .faq h3{font-size:18px;margin:0 0 8px}
+.article .faq p{font-size:16px;line-height:1.7;color:#26262b;margin:0}
+/* ===== ФИНАЛЬНЫЙ CTA-БЛОК (низ статьи, самое важное) ===== */
+.ctafinal{background:linear-gradient(150deg,#2b3140 0%,#1d2129 100%);border-radius:22px;padding:34px 34px 30px;margin:46px 0 24px;box-shadow:0 18px 44px rgba(20,22,28,.22)}
+.cta-in{max-width:560px}
+.ctafinal h2{margin:0 0 12px;font-size:26px;line-height:1.2;color:#fff}
+.ctafinal p{font-size:16.5px;line-height:1.65;color:#c3c8d2;margin:0 0 20px}
+.ctaform{margin:0 0 16px}
+.ctarow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.ctaform input[name=name],.ctaform input[name=phone]{width:100%;padding:15px 16px;border:1.5px solid #3a4150;border-radius:13px;font:inherit;font-size:16px;background:#fff;color:var(--navy)}
+.ctaform input::placeholder{color:#9aa0ad}
+.ctaform input:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(239,115,32,.2)}
+.ctabtn{border:0;cursor:pointer;width:100%;font-size:17px;font-weight:800;padding:16px;border-radius:13px;background:var(--orange);color:#fff;transition:.15s}
+.ctabtn:hover{background:var(--orange2)}
+.ctaform .lf-ok{display:none;background:rgba(46,193,107,.15);border:1px solid rgba(46,193,107,.4);border-radius:13px;padding:14px 16px;margin-top:12px;font-weight:600;color:#7ce3a1}
+.ctaform .lf-err{display:none;color:#ff9ea2;margin-top:12px;font-size:14px}
+.tgbtn{display:inline-flex;align-items:center;gap:9px;background:#29a9eb;color:#fff;text-decoration:none;font-weight:700;font-size:15.5px;padding:12px 18px;border-radius:12px;margin:0 0 14px;transition:.15s}
+.tgbtn:hover{background:#1f95d1}
+.tgbtn svg{flex:0 0 auto}
+.ctacall{font-size:17px;color:#c3c8d2;margin:4px 0 10px}
+.ctacall a{color:#ffb057;font-weight:800;text-decoration:none;white-space:nowrap;border-bottom:1px solid rgba(255,176,87,.4)}
+.ctapriv{font-size:12.5px;color:#7a808c;margin:0}
+.ctapriv a{color:#9aa0ad}
+@media(max-width:640px){.ctafinal{padding:26px 20px 24px;border-radius:18px}.ctafinal h2{font-size:22px}.ctarow{grid-template-columns:1fr}}
+/* ===== ПРЕМИУМ ФУТЕР СТАТЬИ ===== */
+.artfooter{margin:44px 0 30px;padding:28px 30px 22px;background:var(--soft);border:1px solid var(--line);border-radius:20px}
+.af-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.af-brand{max-width:340px}
+.af-logo{font-weight:800;font-size:21px;color:var(--navy)}.af-logo b{color:var(--orange)}
+.af-brand p{font-size:14px;line-height:1.55;color:var(--muted);margin:10px 0 0}
+.af-contacts{display:flex;flex-direction:column;gap:11px}
+.af-contacts a,.af-contacts .af-addr{display:flex;align-items:center;gap:9px;color:var(--navy);text-decoration:none;font-size:15px;font-weight:600}
+.af-contacts svg{color:var(--orange);flex:0 0 auto}
+.af-contacts .af-addr{color:var(--muted);font-weight:500;font-size:14px;max-width:320px}
+.af-contacts a:hover{color:var(--orange)}
+.af-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:18px 0 0}
+.af-links{display:flex;gap:20px;flex-wrap:wrap}
+.af-links a{color:var(--navy);text-decoration:none;font-size:14.5px;font-weight:600}
+.af-links a:hover{color:var(--orange)}
+.af-up{display:inline-flex;align-items:center;gap:5px;color:var(--orange);text-decoration:none;font-weight:700;font-size:14px}
+.af-copy{margin-top:16px;font-size:12.5px;color:var(--ink3,#9aa0b4)}
+@media(max-width:640px){.artfooter{padding:22px 18px 18px}.af-top{flex-direction:column;gap:18px}.af-bottom{flex-direction:column;align-items:flex-start;gap:14px}}
+@media(max-width:640px){.article h1{font-size:27px}.asec h2{font-size:22px}}
 """.strip()
 
 
-def head_html(title, desc, canonical, jsonld_blocks):
+
+# Яндекс.Метрика для статических страниц (авто-hit) + цели-клики tel/mail/tg
+METRIKA = """<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=110603522','ym');
+ym(110603522,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",accurateTrackBounce:true,trackLinks:true});
+window.ymGoal=function(n){try{ym(110603522,'reachGoal',n);}catch(_){}};
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a)return;
+var h=a.getAttribute('href')||'';
+if(h.indexOf('tel:')===0)window.ymGoal('phone_click');
+else if(h.indexOf('mailto:')===0)window.ymGoal('email_click');
+else if(h.indexOf('t.me')>-1||h.indexOf('wa.me')>-1)window.ymGoal('messenger');});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110603522" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->"""
+
+
+def lead_form_block(service_name):
+    """Форма заявки на статической посадочной: POST в /send.php, цель form_submit."""
+    svc = esc(service_name)
+    return ("""<div class="contact" id="zayavka"><h2 style="margin-top:0">Получить разбор объекта</h2>
+<p>Оставьте телефон: эксперт KEO GROUP разберёт вашу ситуацию и предложит порядок действий, сроки и стоимость. Перезвоним в течение 2 часов в рабочее время.</p>
+<form id="lf" novalidate style="max-width:460px">
+<input name="name" placeholder="Как к вам обращаться" autocomplete="name" style="display:block;width:100%;padding:12px 14px;margin:0 0 10px;border:1px solid #d9dde3;border-radius:10px;font:inherit;font-size:16px">
+<input name="phone" placeholder="+7 999 123 45 67" inputmode="tel" autocomplete="tel" style="display:block;width:100%;padding:12px 14px;margin:0 0 10px;border:1px solid #d9dde3;border-radius:10px;font:inherit;font-size:16px">
+<input type="hidden" name="service" value="""" + svc + """">
+<input type="hidden" name="_subject" value="Заявка с посадочной KEO GROUP">
+<div style="position:absolute;left:-9999px" aria-hidden="true"><input name="_gotcha" tabindex="-1" autocomplete="off"></div>
+<button type="submit" class="btn" style="border:0;cursor:pointer;width:100%;font-size:15px">Отправить заявку</button>
+<p style="font-size:12px;color:#6b7280;margin:8px 0 0">Отправляя форму, вы соглашаетесь с <a href="../../#/politika">политикой конфиденциальности</a>.</p>
+<div id="lf-ok" style="display:none;background:#e9f7ef;border:1px solid #bfe6cd;border-radius:10px;padding:12px 14px;margin-top:10px;font-weight:600">Спасибо, заявка принята. Эксперт свяжется с вами в ближайшее время.</div>
+<div id="lf-err" style="display:none;color:#b42318;margin-top:10px;font-size:13.5px">Не получилось отправить. Позвоните нам: """ + PHONE + """</div>
+</form>
+<script>
+(function(){var f=document.getElementById('lf');if(!f)return;
+f.addEventListener('submit',function(e){e.preventDefault();
+var n=f.name.value.trim(),p=(f.phone.value||'').replace(/[^0-9]/g,'');
+if(n.length<2){f.name.style.borderColor='#b42318';return;}else{f.name.style.borderColor='#d9dde3';}
+if(p.length<11){f.phone.style.borderColor='#b42318';return;}else{f.phone.style.borderColor='#d9dde3';}
+if(f._gotcha&&f._gotcha.value)return;
+var b=f.querySelector('button');b.disabled=true;b.textContent='Отправляем…';
+fetch('/send.php',{method:'POST',headers:{Accept:'application/json'},body:new FormData(f)})
+.then(function(r){if(r.ok){window.ymGoal&&window.ymGoal('form_submit');
+document.getElementById('lf-ok').style.display='block';f.reset();b.textContent='Отправить заявку';b.disabled=false;}
+else{throw 0;}})
+.catch(function(){document.getElementById('lf-err').style.display='block';b.disabled=false;b.textContent='Отправить заявку';});});})();
+</script></div>"""
+    )
+
+
+
+def head_html(title, desc, canonical, jsonld_blocks, og_image=None):
     ld = "\n".join(
         f'<script type="application/ld+json">{json.dumps(b, ensure_ascii=False)}</script>'
         for b in jsonld_blocks)
+    og_img = og_image or (BASE_URL + "images/brand/keo-logo.jpg")
     return f"""<!doctype html>
 <html lang="ru">
 <head>
@@ -268,11 +430,27 @@ def head_html(title, desc, canonical, jsonld_blocks):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="icon" href="{BASE_URL}favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="{BASE_URL}favicon.svg">
+<link rel="apple-touch-icon" href="{BASE_URL}apple-touch-icon.png">
 <link rel="canonical" href="{canonical}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="KEO GROUP">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="{esc(title)}">
+<meta property="og:description" content="{esc(desc)}">
+<meta property="og:url" content="{canonical}">
+<meta property="og:image" content="{og_img}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{esc(title)}">
+<meta name="twitter:description" content="{esc(desc)}">
+<meta name="twitter:image" content="{og_img}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>{CSS}</style>
 {ld}
+{METRIKA}
 </head>"""
 
 
@@ -323,6 +501,161 @@ def jsonld_for(slug, title, desc, faq, price, group_title):
     return blocks
 
 
+def nav_menu():
+    """Верхнее меню-навигация (на всех статических страницах)."""
+    return (
+        '<nav class="mainnav"><div class="wrap navwrap">'
+        '<a class="logo" href="../../">KEO <span>GROUP</span></a>'
+        '<div class="navlinks">'
+        '<a href="../../">Главная</a>'
+        '<a href="../../#/uslugi">Услуги</a>'
+        '<a href="../krt-zashchita/">КРТ</a>'
+        '<a href="../rosreestr-priostanovki/">Росреестр</a>'
+        '<a href="/spravochnik/">Справочник</a>'
+        '<a href="../../#/o-kompanii">О компании</a>'
+        '</div>'
+        f'<a class="navphone" href="tel:{PHONE_TEL}">{PHONE}</a>'
+        '</div></nav>'
+    )
+
+
+def soft_help_block(name, group_title, cta=None):
+    """Финальный CTA-блок статьи. Заголовок и текст — СВОИ под тему страницы (cta),
+    иначе общий запасной. Тёмный премиум, форма (имя+телефон), крупный телефон."""
+    svc = esc(f"Справочник: {name}")
+    cta = cta or {}
+    h = esc(cta.get("h") or "Поможем с вашим участком или объектом")
+    ptext = esc(cta.get("p") or "Расскажите про свою ситуацию: эксперт KEO GROUP разберёт её и подскажет порядок действий, сроки и стоимость. За плечами команды более 25 лет практики. Перезвоним в течение 2 часов в рабочее время.")
+    return ("""<aside class="ctafinal" id="zayavka"><div class="cta-in">
+<h2>""" + h + """</h2>
+<p>""" + ptext + """</p>
+<form id="lf" novalidate class="ctaform">
+<div class="ctarow">
+<input name="name" placeholder="Как к вам обращаться" autocomplete="name">
+<input name="phone" placeholder="Ваш телефон" inputmode="tel" autocomplete="tel">
+</div>
+<input type="hidden" name="service" value=\"""" + svc + """">
+<input type="hidden" name="_subject" value="Заявка со статьи KEO GROUP">
+<div style="position:absolute;left:-9999px" aria-hidden="true"><input name="_gotcha" tabindex="-1" autocomplete="off"></div>
+<button type="submit" class="btn ctabtn">Отправить заявку</button>
+<div id="lf-ok" class="lf-ok">Спасибо, заявка принята. Эксперт свяжется с вами в ближайшее время.</div>
+<div id="lf-err" class="lf-err">Не получилось отправить, позвоните нам: """ + PHONE + """</div>
+</form>
+<a class="tgbtn" href="https://t.me/""" + TELEGRAM + """" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M21.9 4.3l-3.3 15.6c-.2 1.1-.9 1.4-1.8.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L4.7 13.4l-4.9-1.5c-1.1-.3-1.1-1 .2-1.6L20.5 2.6c.9-.3 1.7.2 1.4 1.7z"/></svg><span>Написать в Telegram и прислать документы</span></a>
+<div class="ctacall">Или позвоните прямо сейчас: <a href="tel:""" + PHONE_TEL + '">' + PHONE + """</a></div>
+<div class="ctapriv">Отправляя форму, вы соглашаетесь с <a href="../../#/politika">политикой конфиденциальности</a>.</div>
+</div>
+<script>
+(function(){var f=document.getElementById('lf');if(!f)return;
+f.addEventListener('submit',function(e){e.preventDefault();
+var n=f.name.value.trim(),p=(f.phone.value||'').replace(/[^0-9]/g,'');
+if(n.length<2){f.name.style.borderColor='#e5484d';return;}else{f.name.style.borderColor='';}
+if(p.length<11){f.phone.style.borderColor='#e5484d';return;}else{f.phone.style.borderColor='';}
+if(f._gotcha&&f._gotcha.value)return;
+var b=f.querySelector('button');b.disabled=true;b.textContent='Отправляем…';
+fetch('/send.php',{method:'POST',headers:{Accept:'application/json'},body:new FormData(f)})
+.then(function(r){if(r.ok){window.ymGoal&&window.ymGoal('form_submit');
+document.getElementById('lf-ok').style.display='block';f.reset();b.textContent='Отправить заявку';b.disabled=false;}else{throw 0;}})
+.catch(function(){document.getElementById('lf-err').style.display='block';b.disabled=false;b.textContent='Отправить заявку';});});})();
+</script>
+</aside>""")
+
+
+def art_footer():
+    """Премиальный футер статьи в размер контента: логотип, контакты с иконками, ссылки, наверх."""
+    ic_pin = '<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1112 6.5a2.5 2.5 0 010 5z"/></svg>'
+    ic_tel = '<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>'
+    ic_mail = '<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm8 7l8-4.5V6l-8 4.5L4 6v.5L12 11z"/></svg>'
+    ic_up = '<svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 5l7 7-1.4 1.4L13 8.8V19h-2V8.8l-4.6 4.6L5 12z"/></svg>'
+    return (
+        '<footer class="artfooter">'
+        '<div class="af-top">'
+        '<div class="af-brand"><span class="af-logo">KEO <b>GROUP</b></span>'
+        '<p>Юридическое и градостроительное сопровождение коммерческой недвижимости в Москве.</p></div>'
+        '<div class="af-contacts">'
+        f'<a href="tel:{PHONE_TEL}">{ic_tel}<span>{PHONE}</span></a>'
+        f'<a href="mailto:{EMAIL}">{ic_mail}<span>{EMAIL}</span></a>'
+        f'<span class="af-addr">{ic_pin}<span>{esc(ADDRESS)}, {esc(METRO)}</span></span>'
+        '</div></div>'
+        '<div class="af-bottom">'
+        '<div class="af-links"><a href="../../">На главную</a><a href="../../#/uslugi">Услуги</a>'
+        '<a href="../../#/o-kompanii">О компании</a><a href="../../#/kontakty">Контакты</a></div>'
+        f'<a href="#top" class="af-up">{ic_up}Наверх</a>'
+        '</div>'
+        '<div class="af-copy">© 2026 KEO GROUP. Все права защищены.</div>'
+        '</footer>'
+    )
+
+
+def article_page_html(slug, rich_d, services, groups, prices, name, title, desc, url, group_title, g_key):
+    """Шаблон ИНФО-СТАТЬИ (лонгрид): меню сверху → H1 → интро → оглавление →
+    большой текст разделами → FAQ → и только в конце мягкий блок помощи."""
+    h1 = rich_d.get("h1") or name
+    intro = rich_d.get("intro") or rich_d.get("lede") or ""
+    toc = rich_d.get("toc") or []
+    sections = rich_d.get("sections") or []
+    faq = rich_d.get("faq") or []
+    stats = rich_d.get("stats") or []
+    hero_img = rich_d.get("img") or slug
+    body = []
+    # HERO с картинкой на первом экране
+    body.append(
+        f'<div class="ahero" style="background-image:linear-gradient(180deg,rgba(20,22,28,.28),rgba(20,22,28,.82)),url(../../images/land/{esc(hero_img)}.jpg)">'
+        f'<div class="ahero-in">'
+        f'<p class="crumbs light"><a href="../../">Главная</a> / <a href="/spravochnik/">Справочник</a> / {esc(group_title)}</p>'
+        f'<div class="eyebrow light">{esc(group_title)}</div>'
+        f'<h1>{esc(h1)}</h1>'
+        f'</div></div>'
+    )
+    if intro:
+        body.append(f'<p class="lede">{esc(intro)}</p>')
+    # КАРТОЧКИ КЛЮЧЕВЫХ ФАКТОВ (инфографика)
+    if stats:
+        body.append('<div class="statcards">')
+        for pair in stats[:4]:
+            body.append(f'<div class="statcard"><b>{esc(pair[0])}</b><span>{esc(pair[1])}</span></div>')
+        body.append('</div>')
+    if rich_d.get("updated"):
+        body.append(f'<p class="upd">Обновлено: {esc(rich_d["updated"])}</p>')
+    if toc:
+        body.append('<nav class="toc"><div class="toc-t">Содержание</div><ol>')
+        for item in toc:
+            tid, ttitle = item[0], item[1]
+            body.append(f'<li><a href="#{esc(tid)}">{esc(ttitle)}</a></li>')
+        body.append('</ol></nav>')
+    for sec in sections:
+        sid = esc(sec.get("id", ""))
+        sh2 = esc(sec.get("h2", ""))
+        shtml = sec.get("html", "")  # доверенный HTML от копирайтера
+        body.append(f'<section class="asec"><h2 id="{sid}">{sh2}</h2>{shtml}</section>')
+    if faq:
+        body.append('<h2 id="faq">Частые вопросы</h2>')
+        for q, a in faq:
+            body.append(f'<div class="faq"><h3>{esc(q)}</h3><p>{esc(a)}</p></div>')
+    body.append(soft_help_block(h1, group_title, rich_d.get("cta")))
+    # смежные материалы той же группы
+    rel = [s for s in services if s["g"] == g_key and s["slug"] != slug][:4]
+    if rel:
+        body.append('<h2>Смежные материалы</h2><ul class="plain rel">')
+        for r in rel:
+            body.append(f'<li><a href="../{r["slug"]}/">{esc(r["name"])}</a> <span class="muted">{esc(r["note"])}</span></li>')
+        body.append("</ul>")
+    jsonld = jsonld_for(slug, name, desc, faq, "", group_title)
+    # og-картинка = тематическая картинка статьи (НЕ логотип), берём hero-изображение
+    land_img = SITE_DIR / "images" / "land" / f"{hero_img}.jpg"
+    og_image = f"{BASE_URL}images/land/{hero_img}.jpg" if land_img.exists() else None
+    return f"""{head_html(title, desc, url, jsonld, og_image=og_image)}
+<body>
+{nav_menu()}
+<main id="top"><div class="wrap article">
+{chr(10).join(body)}
+{art_footer()}
+</div></main>
+</body>
+</html>
+"""
+
+
 def page_html(slug, svc, rich_d, services, groups, prices):
     g_key = (rich_d or {}).get("group") or (svc or {}).get("g") or ""
     group = groups.get(g_key, {})
@@ -336,6 +669,9 @@ def page_html(slug, svc, rich_d, services, groups, prices):
     desc = seo.get("desc") or (lede[:157] + "…" if len(lede) > 160 else lede)
 
     url = f"{BASE_URL}u/{slug}/"
+    # инфо-страница (статья-лонгрид) рендерится отдельным шаблоном
+    if (rich_d or {}).get("sections"):
+        return article_page_html(slug, rich_d, services, groups, prices, name, title, desc, url, group_title, g_key)
     body = []
     body.append(f'<p class="crumbs"><a href="../../">Главная</a> / <a href="../../#/uslugi">Услуги</a> / {esc(group_title)}</p>')
     body.append(f'<div class="eyebrow">{esc(group_title)}</div>')
@@ -346,6 +682,7 @@ def page_html(slug, svc, rich_d, services, groups, prices):
         body.append(f'<p class="upd">Обновлено: {esc(rich_d["updated"])}</p>')
     body.append(f'<p class="price-line">Стоимость: {esc(price)}. Точную смету называем после разбора объекта, до старта работ.</p>')
     body.append(f'<a class="btn" href="tel:{PHONE_TEL}">Позвонить: {PHONE}</a>')
+    body.append('<a class="btn" href="#zayavka" style="margin-left:8px;background:#fff;color:#bd560b;border:2px solid #ef7320">Оставить заявку</a>')
 
     if rich_d:
         if rich_d.get("scenarios"):
@@ -393,6 +730,9 @@ def page_html(slug, svc, rich_d, services, groups, prices):
         for q, a in faq:
             body.append(f'<div class="faq"><h3>{esc(q)}</h3><p>{esc(a)}</p></div>')
 
+    # форма заявки (посадочная для рекламы)
+    body.append(lead_form_block(name))
+
     # контакты
     body.append(f"""<div class="contact"><h2 style="margin-top:0">Контакты KEO GROUP</h2>
 <p>Телефон: <a href="tel:{PHONE_TEL}">{PHONE}</a> (будни с 9 до 18)</p>
@@ -409,7 +749,9 @@ def page_html(slug, svc, rich_d, services, groups, prices):
         body.append("</ul>")
 
     jsonld = jsonld_for(slug, name, desc, faq, price, group_title)
-    return f"""{head_html(title, desc, url, jsonld)}
+    land_img = SITE_DIR / "images" / "land" / f"{slug}.jpg"
+    og_image = f"{BASE_URL}images/land/{slug}.jpg" if land_img.exists() else None
+    return f"""{head_html(title, desc, url, jsonld, og_image=og_image)}
 <body>
 <header><div class="wrap"><a class="logo" href="../../">KEO <span>GROUP</span></a><a class="phone" href="tel:{PHONE_TEL}">{PHONE}</a></div></header>
 <main><div class="wrap">

@@ -3,3 +3,6 @@ _designreview/
 _dr_*/
 _dr/
 .DS_Store
+
+.beget_ftp
+.yandex_oauth

@@ -1,0 +1,117 @@
+# keogroup.ru — многостраничный сайт KEO GROUP
+AddDefaultCharset UTF-8
+Options -Indexes
+DirectoryIndex index.html
+
+# ============ ЗАГОЛОВКИ БЕЗОПАСНОСТИ ============
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# Принудительный HTTPS
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ===== СЛЕДЫ СТАРОГО ВЗЛОМАННОГО WORDPRESS: 410 Gone =====
+RewriteRule ^index\.php - [G,L]
+RewriteRule ^(wp-admin|wp-includes|wp-content|wp-snapshots)(/.*)?$ - [G,L]
+RewriteRule ^wp-[a-z0-9-]*\.php$ - [G,L]
+RewriteRule ^xmlrpc\.php$ - [G,L]
+RewriteRule ^(page-sitemap|post-sitemap|category-sitemap|wp-sitemap)[a-z0-9-]*\.xml$ - [G,L]
+RewriteRule ^(_tools|parser|keys|cgi-bin)(/.*)?$ - [G,L]
+
+# Короткие адреса для рекламы (301 на полноценные страницы услуг)
+RewriteRule ^krt/?$ https://keogroup.ru/u/krt-zashchita/ [R=301,L]
+RewriteRule ^dgi/?$ https://keogroup.ru/u/dgi-vykup-159fz/ [R=301,L]
+RewriteRule ^rosreestr/?$ https://keogroup.ru/u/rosreestr-priostanovki/ [R=301,L]
+RewriteRule ^legalizatsiya/?$ https://keogroup.ru/u/legalizaciya-819pp/ [R=301,L]
+RewriteRule ^vri/?$ https://keogroup.ru/u/vri-zemelnogo-uchastka/ [R=301,L]
+
+
+# ===== 301 со старых адресов WordPress-сайта на аналоги (SEO-вес сохраняем) =====
+RewriteRule ^about/?$ https://keogroup.ru/o-kompanii/ [R=301,L]
+RewriteRule ^partners/?$ https://keogroup.ru/o-kompanii/ [R=301,L]
+RewriteRule ^gzk-moskvy/?$ https://keogroup.ru/u/gzk/ [R=301,L]
+RewriteRule ^uzakonit-rekonstrukciju-s-prohozhdeniem-mgk-gzk/?$ https://keogroup.ru/u/gzk/ [R=301,L]
+RewriteRule ^egrn/?$ https://keogroup.ru/u/izmeneniya-egrn/ [R=301,L]
+RewriteRule ^mezhevoj-plan/?$ https://keogroup.ru/u/mezhevanie-granicy/ [R=301,L]
+RewriteRule ^tehnicheskij-plan/?$ https://keogroup.ru/u/tehnicheskiy-plan/ [R=301,L]
+RewriteRule ^pzz/?$ https://keogroup.ru/u/pzz-moskvy/ [R=301,L]
+RewriteRule ^proektirovanie/?$ https://keogroup.ru/u/novoe-stroitelstvo/ [R=301,L]
+RewriteRule ^proektirovanie-pereplanirovki/?$ https://keogroup.ru/u/proekt-pereplanirovki/ [R=301,L]
+RewriteRule ^razrabotka-agr/?$ https://keogroup.ru/u/agr-arhitekturnye-resheniya/ [R=301,L]
+RewriteRule ^oformlenie-zos-i-agr/?$ https://keogroup.ru/u/pasport-bezopasnosti-zos/ [R=301,L]
+RewriteRule ^cherdaki/?$ https://keogroup.ru/u/prisoedinenie-cherdaka/ [R=301,L]
+RewriteRule ^antresoly/?$ https://keogroup.ru/u/soglasovanie-antresoli/ [R=301,L]
+RewriteRule ^pristrojki-nadstrojki/?$ https://keogroup.ru/u/rekonstrukciya-zdaniy/ [R=301,L]
+RewriteRule ^pravo-vykupa-pomeshhenij/?$ https://keogroup.ru/u/dgi-vykup-159fz/ [R=301,L]
+RewriteRule ^kak-vykupit-pomeshheniya-u-goroda/?$ https://keogroup.ru/u/dgi-vykup-159fz/ [R=301,L]
+RewriteRule ^uslugi-v-dgi/?$ https://keogroup.ru/u/dgi-vykup-159fz/ [R=301,L]
+RewriteRule ^samostroj/?$ https://keogroup.ru/u/legalizaciya-819pp/ [R=301,L]
+RewriteRule ^soglasovanie-pereplanirovki/?$ https://keogroup.ru/u/soglasovanie-pereplanirovki/ [R=301,L]
+RewriteRule ^oformit-pereplanirovku-pomeshhenij-v-ofisnom-zdanii/?$ https://keogroup.ru/u/soglasovanie-pereplanirovki/ [R=301,L]
+RewriteRule ^chto-delat-esli-u-vas-vyyavlen-samostroj-i-kak-ego-uzakonit/?$ https://keogroup.ru/u/legalizaciya-819pp/ [R=301,L]
+RewriteRule ^sposoby-uzakonivaniya-samostroya-cherez-moskovskuju-gorodskuju-komissiju-mgk/?$ https://keogroup.ru/u/legalizaciya-819pp/ [R=301,L]
+RewriteRule ^legalizaciya-samostroya-v-administrativnom-poryadke/?$ https://keogroup.ru/u/legalizaciya-819pp/ [R=301,L]
+RewriteRule ^legalizaciya-samostroya-v-moskve/?$ https://keogroup.ru/u/legalizaciya-819pp/ [R=301,L]
+RewriteRule ^legalizaciya-rekonstrukcii-antresol-novodmitrovskaya/?$ https://keogroup.ru/u/rekonstrukciya-zdaniy/ [R=301,L]
+RewriteRule ^legalizaciya-rekonstrukcii-cherdachnoe-pomeshhenie/?$ https://keogroup.ru/u/rekonstrukciya-zdaniy/ [R=301,L]
+RewriteRule ^legalizaciya-rekonstrukcii-nadstrojka-3-go-etazha/?$ https://keogroup.ru/u/rekonstrukciya-zdaniy/ [R=301,L]
+RewriteRule ^legalizaciya-rekonstrukcii-tehnicheskij-etazh/?$ https://keogroup.ru/u/rekonstrukciya-zdaniy/ [R=301,L]
+RewriteRule ^rekonstrukciya/?$ https://keogroup.ru/u/rekonstrukciya-zdaniy/ [R=301,L]
+RewriteRule ^rekonstrukciya-kommercheskogo-pomeshheniya/?$ https://keogroup.ru/u/rekonstrukciya-zdaniy/ [R=301,L]
+RewriteRule ^rekonstrukciya-i-pereplanirovka-v-4-h-zdaniyah/?$ https://keogroup.ru/u/rekonstrukciya-zdaniy/ [R=301,L]
+RewriteRule ^pereplanirovka-i-rabota-po-rekonstrukcii-fasada/?$ https://keogroup.ru/u/rekonstrukciya-zdaniy/ [R=301,L]
+RewriteRule ^pereplanirovka-kvartiry-2-antresoli/?$ https://keogroup.ru/u/soglasovanie-antresoli/ [R=301,L]
+RewriteRule ^pereplanirovka-kvartiry-s-ustrojstvom-antresolnogo-etazha-i-terrasy/?$ https://keogroup.ru/u/soglasovanie-antresoli/ [R=301,L]
+RewriteRule ^pereplanirovka-s-ustrojstvom-antresolnogo-etazha/?$ https://keogroup.ru/u/soglasovanie-antresoli/ [R=301,L]
+RewriteRule ^samostroi-moskvy(/.*)?$ https://keogroup.ru/u/legalizaciya-819pp/ [R=301,L]
+RewriteRule ^category/kejsy(/.*)?$ https://keogroup.ru/keysy/ [R=301,L]
+RewriteRule ^category/stati(/.*)?$ https://keogroup.ru/blog/ [R=301,L]
+RewriteRule ^category(/.*)?$ https://keogroup.ru/blog/ [R=301,L]
+
+# Существующие файлы и папки (с index.html) отдаём как есть
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Несуществующее -> честный 404
+RewriteRule ^ - [R=404,L]
+</IfModule>
+
+ErrorDocument 404 /404.html
+ErrorDocument 410 /404.html
+
+# Служебные файлы закрыты
+<FilesMatch "\.(log|bkp|sql|gz|sh|ini|conf|passfile|key|pem|rsa)$">
+Require all denied
+</FilesMatch>
+<FilesMatch "^\.(?!well-known)">
+Require all denied
+</FilesMatch>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/html "access plus 0 seconds"
+ExpiresByType text/css "access plus 1 month"
+ExpiresByType application/javascript "access plus 1 month"
+ExpiresByType image/jpeg "access plus 6 months"
+ExpiresByType image/png "access plus 6 months"
+ExpiresByType image/webp "access plus 6 months"
+ExpiresByType image/svg+xml "access plus 6 months"
+ExpiresByType image/x-icon "access plus 1 year"
+ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml application/xml
+</IfModule>

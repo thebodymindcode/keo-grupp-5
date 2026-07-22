@@ -12,7 +12,8 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 IDX = ROOT / "index.html"
 CONTENT = ROOT / "_content"
 FIELDS = ["group","title","lede","ledePoints","badge","img","updated","scenarios","pains","steps",
-          "stats","tariffs","cases","micro","faq","seo"]
+          "stats","tariffs","cases","micro","faq","seo",
+          "h1","intro","toc","sections","cta"]  # поля статьи-лонгрида (инфо-страницы) + свой CTA
 
 def js(v):
     return json.dumps(v, ensure_ascii=False)
